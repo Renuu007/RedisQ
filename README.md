@@ -95,8 +95,8 @@ notify_webhook("https://api.example.com/webhook", {"event": "user_signup"})
 
 ## 📖 Documentation
 
-- **[📚 Complete Usage Guide](use.md)** - Real-world examples and patterns
-- **[🧪 How to Test](howtotest.md)** - Testing guide and troubleshooting
+- **[📚 Complete Usage Guide](docs/use.md)** - Real-world examples and patterns
+- **[🧪 How to Test](docs/howtotest.md)** - Testing guide and troubleshooting
 - **[🔧 Example Code](example_usage.py)** - Ready-to-run examples
 
 ## 🔍 Real-World Example
@@ -153,7 +153,7 @@ def background_task(): pass
 
 ## 🛠️ Development & Contributing
 
-**Want to contribute to RedisQ?** Check out our detailed **[Development Guide](DEV-README.md)** for:
+**Want to contribute to RedisQ?** Check out our detailed **[Development Guide](docs/DEV-README.md)** for:
 
 - 🗺️ **Project roadmap** - Core features, monitoring, and DevOps plans
 - 🤝 **Contributing guidelines** - How to report bugs, suggest features, and submit PRs
@@ -166,7 +166,7 @@ git clone https://github.com/Renuu007/RedisQ.git
 cd RedisQ && pip install -e .
 ```
 
-👉 **[Read the full Development Guide →](DEV-README.md)**
+👉 **[Read the full Development Guide →](docs/DEV-README.md)**
 
 ## 📜 License
 
