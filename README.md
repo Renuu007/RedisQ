@@ -153,55 +153,20 @@ def background_task(): pass
 
 ## 🛠️ Development & Contributing
 
-### Roadmap
+**Want to contribute to RedisQ?** Check out our detailed **[Development Guide](DEV-README.md)** for:
 
-#### Core Features
-- [ ] **Graceful shutdown** - Clean worker thread termination
-- [ ] **Enhanced error handling** - Retry mechanisms and failure recovery
-- [ ] **Task TTL** - Automatic cleanup of stale tasks
-- [ ] **Custom serialization** - Support for complex data types
-- [ ] **Connection pooling** - Efficient Redis connection management
-- [ ] **Async support** - `@fifo` decorator for async functions
+- 🗺️ **Project roadmap** - Core features, monitoring, and DevOps plans
+- 🤝 **Contributing guidelines** - How to report bugs, suggest features, and submit PRs
+- 🔧 **Development setup** - Get your local environment ready
+- � **Coding standards** - Best practices and project structure
 
-#### Reliability & Monitoring
-- [ ] **Comprehensive tests** - Unit tests for all components
-- [ ] **Performance benchmarks** - Throughput and latency metrics
-- [ ] **Health checks** - Worker and queue monitoring
-- [ ] **Metrics export** - Prometheus/StatsD integration
-
-#### DevOps
-- [ ] **CI/CD pipeline** - GitHub Actions for testing and publishing
-- [ ] **Documentation** - API docs and advanced guides
-- [ ] **Docker support** - Official Docker images
-
-### Contributing
-
-We welcome contributions! Here's how to help:
-
-1. **🐛 Report bugs** - Open an issue with details
-2. **💡 Suggest features** - Share your ideas
-3. **🧪 Add tests** - Help improve reliability
-4. **📝 Improve docs** - Make it easier for others
-5. **🔧 Submit PRs** - Fix bugs or add features
-
-### Development Setup
-
+**Quick start for contributors:**
 ```bash
-# Clone the repo
-git clone https://github.com/yourusername/redisq.git
-cd redisq
-
-# Set up development environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Install in development mode
-pip install -e .
-pip install -r requirements-dev.txt
-
-# Run tests
-pytest
+git clone https://github.com/Renuu007/RedisQ.git
+cd RedisQ && pip install -e .
 ```
+
+👉 **[Read the full Development Guide →](DEV-README.md)**
 
 ## 📜 License
 
