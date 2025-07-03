@@ -1,5 +1,5 @@
+# Central manager for coordinating queue operations
 import logging
-
 from .backend import RedisQueueBackend
 from .registry import QueueRegistry
 
@@ -10,7 +10,7 @@ class QueueManager:
     _backend: RedisQueueBackend = None
 
     def __init__(self):
-        self.registry = QueueRegistry()
+        self.registry = QueueRegistry()  # Initialize function registry
 
     @property
     def backend(self):
@@ -19,7 +19,7 @@ class QueueManager:
     @backend.setter
     def backend(self, backend: RedisQueueBackend):
         self._backend = backend
-        log.debug(f"Backend configured: {self._backend}")
+        log.debug(f"Backend configured: {self._backend}")  # Log backend setup
 
 
-mgr = QueueManager()
+mgr = QueueManager()  # Global manager instance

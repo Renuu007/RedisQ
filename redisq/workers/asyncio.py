@@ -1,0 +1,1 @@
+# Asyncio-based worker implementation (placeholder for future development)

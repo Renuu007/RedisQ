@@ -11,8 +11,7 @@ from redisq import threaded_worker, RedisQueueBackend, fifo
 @fifo(queue="email-queue")
 def send_email(recipient, subject, body):
     print(f"📧 Sending email to {recipient}: {subject}")
-    # Simulate email sending
-    time.sleep(0.5)
+    time.sleep(0.5)  # Simulate email sending delay
     print(f"✅ Email sent to {recipient}")
     return f"Email sent to {recipient}"
 
@@ -20,7 +19,7 @@ def send_email(recipient, subject, body):
 def send_webhook(url, data):
     print(f"🌐 Sending webhook to {url}")
     try:
-        response = requests.post(url, json=data, timeout=10)
+        response = requests.post(url, json=data, timeout=10)  # Send HTTP POST with timeout
         print(f"✅ Webhook sent to {url}: {response.status_code}")
         return f"Webhook sent: {response.status_code}"
     except Exception as e:
@@ -29,8 +28,8 @@ def send_webhook(url, data):
 
 # 2. Initialize the worker (after decorating functions)
 print("🚀 Starting RedisQ...")
-backend = RedisQueueBackend("redis://localhost:6379")
-worker = threaded_worker(backend=backend)
+backend = RedisQueueBackend("redis://localhost:6379")  # Connect to Redis server
+worker = threaded_worker(backend=backend)  # Start worker threads
 
 # 3. Queue some tasks
 print("\n📝 Queueing tasks...")
