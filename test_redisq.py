@@ -6,6 +6,8 @@ Test script for RedisQ - Simple Redis-backed FIFO task queue
 import time
 import logging
 import requests
+import redis
+import os
 from redisq import threaded_worker, RedisQueueBackend, fifo
 
 # Enable debug logging to see what's happening
@@ -15,6 +17,28 @@ logging.basicConfig(level=logging.DEBUG, format='%(name)s - %(levelname)s - %(me
 execution_order = []
 
 print("🚀 Starting RedisQ Test...")
+
+def wait_for_redis(redis_url, max_retries=5, delay=1):
+    """Wait for Redis to be available"""
+    print("⏳ Waiting for Redis to be ready...")
+    for attempt in range(max_retries):
+        try:
+            r = redis.from_url(redis_url)
+            r.ping()
+            print("✅ Redis is ready!")
+            return True
+        except (redis.ConnectionError, redis.TimeoutError) as e:
+            print(f"Attempt {attempt + 1}/{max_retries}: Redis not ready yet... ({e})")
+            time.sleep(delay)
+    print("❌ Redis failed to start after maximum retries")
+    return False
+
+# Get Redis URL from environment or use default
+redis_url = os.getenv("REDIS_URL", "redis://localhost:6379")  # Use environment variable
+
+# Wait for Redis to be ready before proceeding
+if not wait_for_redis(redis_url):
+    exit(1)
 
 # 1. Define test functions FIRST (so they get registered)
 @fifo(queue="test-queue")
@@ -53,8 +77,6 @@ def make_http_request(url):
 
 # 2. NOW initialize the worker (after functions are decorated)
 print("📡 Initializing Redis backend...")
-import os
-redis_url = os.getenv("REDIS_URL", "redis://localhost:6379")  # Use environment variable
 backend = RedisQueueBackend(redis_url)  # Connect to Redis
 
 print("🔧 Starting threaded worker...")
