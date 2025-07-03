@@ -1,0 +1,20 @@
+[project]
+name = "redisq"
+version = "0.1.1"
+description = "Minimal Redis-backed FIFO task queue for Python"
+]
+authors = [
+    { name = "Renuu05", email = "
+    
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "redis>=4.0.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
