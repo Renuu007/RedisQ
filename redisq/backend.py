@@ -1,5 +1,6 @@
 # Redis backend implementation for task queue storage
 import logging
+import os
 import redis
 from .task import Task
 
@@ -7,7 +8,11 @@ log = logging.getLogger("redisq.producer")
 
 
 class RedisQueueBackend:  # @TODO: Subclass Redis instead of from_url
-    def __init__(self, redis_url="redis://localhost"):
+    def __init__(self, redis_url=None):
+        # Use environment variable if no URL provided (Docker compatibility)
+        if redis_url is None:
+            redis_url = os.getenv("REDIS_URL", "redis://localhost:6379")
+        
         self.redis_url = redis_url
         self.redis = redis.Redis.from_url(redis_url)  # Connect to Redis server
 

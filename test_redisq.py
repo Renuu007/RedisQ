@@ -53,7 +53,9 @@ def make_http_request(url):
 
 # 2. NOW initialize the worker (after functions are decorated)
 print("📡 Initializing Redis backend...")
-backend = RedisQueueBackend("redis://localhost:6379")  # Connect to Redis
+import os
+redis_url = os.getenv("REDIS_URL", "redis://localhost:6379")  # Use environment variable
+backend = RedisQueueBackend(redis_url)  # Connect to Redis
 
 print("🔧 Starting threaded worker...")
 worker = threaded_worker(backend=backend)  # Start worker threads

@@ -28,7 +28,9 @@ def send_webhook(url, data):
 
 # 2. Initialize the worker (after decorating functions)
 print("🚀 Starting RedisQ...")
-backend = RedisQueueBackend("redis://localhost:6379")  # Connect to Redis server
+import os
+redis_url = os.getenv("REDIS_URL", "redis://localhost:6379")  # Use environment variable
+backend = RedisQueueBackend(redis_url)  # Connect to Redis server
 worker = threaded_worker(backend=backend)  # Start worker threads
 
 # 3. Queue some tasks

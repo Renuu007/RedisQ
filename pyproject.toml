@@ -2,10 +2,9 @@
 name = "redisq"
 version = "0.1.1"
 description = "Minimal Redis-backed FIFO task queue for Python"
-]
 authors = [
-    { name = "Renuu05", email = "
-    
+    { name = "Renuu05", email = "renuu05@example.com" }
+]
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [
